@@ -1,28 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './index.css';
+import { useTranslation } from 'react-i18next';
 const languages = [
   {
-    lang: 'Svenska',
+    label: 'Svenska',
     flag: 'SE',
+    lang: 'se',
   },
   {
-    lang: 'English',
+    label: 'English',
     flag: 'GB',
+    lang: 'en',
   },
 ];
 const Navbar = () => {
   const [showLangDropDown, setShowLangDropDown] = useState(false);
-  const [language, setLanguage] = useState(languages[0]);
+  const [language, setLanguage] = useState(languages[1]);
+  const dropdownRef = useRef(null);
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowLangDropDown(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   function handleLangDrop() {
     setShowLangDropDown((prev) => !prev);
   }
+
   function handleLangSelect(lang) {
-    const selectedLanguage = languages.find((l) => l.lang === lang);
+    const selectedLanguage = languages.find((l) => l.label === lang);
     if (selectedLanguage) {
+      changeLanguage(selectedLanguage.lang);
       setLanguage(selectedLanguage);
       setShowLangDropDown(false);
     }
   }
+
   return (
     <nav className="navigation-out">
       <header className="navigation-header">
@@ -59,11 +82,11 @@ const Navbar = () => {
             <div className="menu-drop-down">
               <div className="menu-drop-down-container">
                 {[
-                  { label: 'Homeeee', href: '/index.html' },
-                  { label: 'Order', href: '/bestall.html' },
-                  { label: 'Our Customers', href: '/kunder.html' },
-                  { label: 'About us', href: '/omoss.html' },
-                  { label: 'Contact Us', href: '/kontaktaoss.html' },
+                  { label: t('home'), href: '/index.html' },
+                  { label: t('order'), href: '/bestall.html' },
+                  { label: t('customer'), href: '/kunder.html' },
+                  { label: t('about'), href: '/omoss.html' },
+                  { label: t('contact'), href: '/kontaktaoss.html' },
                 ].map(({ label, href }) => (
                   <a
                     key={label}
@@ -81,11 +104,11 @@ const Navbar = () => {
             {/* desktop navbar with language select */}
             <div className="pc-menu">
               {[
-                { label: 'Home', href: '/index.html' },
-                { label: 'Order', href: '/bestall.html' },
-                { label: 'Our Customers', href: '/kunder.html' },
-                { label: 'About us', href: '/omoss.html' },
-                { label: 'Contact Us', href: '/kontaktaoss.html' },
+                { label: t('home'), href: '/index.html' },
+                { label: t('order'), href: '/bestall.html' },
+                { label: t('customer'), href: '/kunder.html' },
+                { label: t('about'), href: '/omoss.html' },
+                { label: t('contact'), href: '/kontaktaoss.html' },
               ].map(({ label, href }) => (
                 <a
                   key={label}
@@ -101,31 +124,34 @@ const Navbar = () => {
 
             <button className=" lang-select-btn  language-pc-menu-items" onClick={handleLangDrop}>
               <div className="language-title-box">
-                <span className="language-name">{language.lang}</span>
+                <span className="language-name">{language.label}</span>
                 <img
                   src={`https://storage.123fakturere.no/public/flags/${language.flag}.png`}
                   className="flag-icon drop-down-image"
-                  alt={language.lang}
+                  alt={language.label}
                 />
               </div>
               {/* Language dropdowns */}
             </button>
             {showLangDropDown && (
-              <div className={`lang-drop-wrapper ${showLangDropDown ? 'open' : ''}`}>
+              <div
+                className={`lang-drop-wrapper ${showLangDropDown ? 'open' : ''}`}
+                ref={dropdownRef}
+              >
                 <div className="lang-drop-container">
                   <div className="dropdownList">
-                    {languages.map(({ lang, flag }) => (
+                    {languages.map(({ label, flag }) => (
                       <div
-                        key={lang}
-                        className={`language-${lang} drop-down-element`}
-                        onClick={() => handleLangSelect(lang)}
+                        key={label}
+                        className={`language-${label} drop-down-element`}
+                        onClick={() => handleLangSelect(label)}
                       >
-                        <div className="drop-down-lang-name">{lang}</div>
+                        <div className="drop-down-lang-name">{label}</div>
                         <div className="drop-down-image-div">
                           <img
                             src={`https://storage.123fakturere.no/public/flags/${flag}.png`}
                             className="drop-down-image"
-                            alt={lang}
+                            alt={label}
                           />
                         </div>
                       </div>
