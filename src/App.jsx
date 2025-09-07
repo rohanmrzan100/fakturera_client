@@ -2,12 +2,14 @@ import { useTranslation } from 'react-i18next';
 import './App.css';
 import Navbar from './components/Navbar';
 import HtmlContent from './components/HtmlContent';
+import { BACKEND_URL } from './constants';
 
 function App() {
+  const { t } = useTranslation();
   const handleGoBack = () => {
     return;
   };
-  const { t } = useTranslation();
+
   return (
     <main>
       <div className="terms-container">
