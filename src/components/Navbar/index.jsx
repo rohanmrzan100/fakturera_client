@@ -97,22 +97,21 @@ const Navbar = () => {
                   </span>
                 </a>
               ))}
-
-              <button className="pc-menu-items language-pc-menu-items" onClick={handleLangDrop}>
-                <div className="language-title-box">
-                  <span className="language-name">{language.lang}</span>
-                  <img
-                    src={`https://storage.123fakturere.no/public/flags/${language.flag}.png`}
-                    className="flag-icon drop-down-image"
-                    alt={language.lang}
-                  />
-                </div>
-              </button>
             </div>
 
-            {/* Language dropdowns */}
+            <button className=" lang-select-btn  language-pc-menu-items" onClick={handleLangDrop}>
+              <div className="language-title-box">
+                <span className="language-name">{language.lang}</span>
+                <img
+                  src={`https://storage.123fakturere.no/public/flags/${language.flag}.png`}
+                  className="flag-icon drop-down-image"
+                  alt={language.lang}
+                />
+              </div>
+              {/* Language dropdowns */}
+            </button>
             {showLangDropDown && (
-              <div className="lang-drop">
+              <div className={`lang-drop-wrapper ${showLangDropDown ? 'open' : ''}`}>
                 <div className="lang-drop-container">
                   <div className="dropdownList">
                     {languages.map(({ lang, flag }) => (
@@ -135,35 +134,6 @@ const Navbar = () => {
                 </div>
               </div>
             )}
-
-            <div className="lang-dropk" onClick={handleLangDrop}>
-              <div className="dropdownContainer">
-                <div className="language-box">
-                  <span className="flag-name collectionitem">English</span>
-                  <img
-                    src="https://storage.123fakturere.no/public/flags/GB.png"
-                    className="icon-flag-nav"
-                    alt="English"
-                  />
-                </div>
-                {showLangDropDown && (
-                  <div className="dropdownList">
-                    {languages.map(({ lang, flag }) => (
-                      <div key={lang} className={`language-${lang} drop-down-element`}>
-                        <div className="drop-down-lang-name">{lang}</div>
-                        <div className="drop-down-image-div">
-                          <img
-                            src={`https://storage.123fakturere.no/public/flags/${flag}.png`}
-                            className="drop-down-image"
-                            alt={lang}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </section>
       </header>
