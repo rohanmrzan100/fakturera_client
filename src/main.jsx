@@ -1,10 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-import './locals/il8n.js';
 import { I18nextProvider } from 'react-i18next';
+import App from './App.jsx';
+import './index.css';
+import './locals/il8n.js';
 import i18n from './locals/il8n.js';
+
+if (import.meta.env.MODE == 'production') {
+  console.log = function () {};
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

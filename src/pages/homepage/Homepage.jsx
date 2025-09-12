@@ -1,0 +1,49 @@
+import { useTranslation } from 'react-i18next';
+import HtmlContent from '../../components/HtmlContent';
+import Navbar from '../../components/Navbar';
+
+const Homepage = () => {
+  const { t } = useTranslation();
+  const handleGoBack = () => {
+    return;
+  };
+
+  return (
+    <div>
+      <div className="terms-container">
+        <div className="background-container">
+          <img
+            src="https://storage.123fakturera.se/public/wallpapers/sverige43.jpg"
+            alt=""
+            id="background-image"
+          />
+        </div>
+
+        <Navbar />
+
+        <div className="content">
+          <section className="terms-section">
+            <div className="terms-top-text">
+              <h1 className="terms-heading">{t('term')}</h1>
+              <button className="go-back-button" onClick={handleGoBack}>
+                {t('close_go_back')}
+              </button>
+            </div>
+
+            <div className="back-terms">
+              <HtmlContent htmlString={t('term_text')} />
+            </div>
+
+            <div className="terms-top-text">
+              <button className="go-back-button lower-back-button" onClick={handleGoBack}>
+                {t('close_go_back')}
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Homepage;

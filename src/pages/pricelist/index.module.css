@@ -1,0 +1,73 @@
+.pricelist-main {
+}
+
+.header {
+  background: #1e90ff;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 140px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.userInfo > div > h3 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+}
+.userInfo > div > p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+}
+.avatar {
+  width: 75px;
+  height: 75px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.headerActions > span {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.flag {
+  width: 50px;
+}
+
+.container {
+  display: flex;
+}
+.open-menu-dds {
+  display: none;
+}
+@media (max-width: 1270px) {
+  .userInfo {
+    display: none;
+  }
+  .open-menu-dds {
+    display: block;
+  }
+  .header {
+    padding: 16px 100px;
+  }
+}
+@media (max-width: 768px) {
+ 
+  .header {
+    padding: 16px 80px;
+  }
+}
