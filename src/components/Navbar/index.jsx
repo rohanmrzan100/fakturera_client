@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import './index.css';
+import styles from './index.module.css';
 import { useTranslation } from 'react-i18next';
 
 const languages = [
@@ -43,27 +43,26 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navigation-out">
-      <header className="navigation-header">
-        <section className="navigation-section">
-          <div className="logoa">
+    <nav className={styles.navigationOut}>
+      <header className={styles.navigationHeader}>
+        <section className={styles.navigationSection}>
+          <div className={styles.logoa}>
             <a href="/">
               <img
                 alt="Logo"
-                className="navigation-logo"
+                className={styles.navigationLogo}
                 src="https://storage.123fakturera.se/public/icons/diamond.png"
               />
             </a>
           </div>
           <div ref={menuDropdownRef}>
-            {/* Mobile menu icon */}
-            <button className="open-menu-dds" onClick={handleMenuClick}>
+            <button className={styles.openMenuDds} onClick={handleMenuClick}>
               <svg
                 stroke="currentColor"
                 fill="currentColor"
                 strokeWidth="0"
                 viewBox="0 0 24 24"
-                className="navigation-svg"
+                className={styles.navigationSvg}
                 height="1em"
                 width="1em"
               >
@@ -71,34 +70,35 @@ const Navbar = () => {
               </svg>
             </button>
 
-            {/* Mobile dropdown */}
-            {showMenuDropDown && (
-              <div className="menu-drop-down" style={{ height: '325px' }}>
-                <div className="menu-drop-down-container">
-                  {[
-                    { label: t('home'), href: '/index.html' },
-                    { label: t('order'), href: '/bestall.html' },
-                    { label: t('customer'), href: '/kunder.html' },
-                    { label: t('about'), href: '/omoss.html' },
-                    { label: t('contact'), href: '/kontaktaoss.html' },
-                  ].map(({ label, href }) => (
-                    <a
-                      key={label}
-                      className="menu-drop-down-item"
-                      href={`https://www.123fakturera.se${href}`}
-                    >
-                      <span className="collectionSpan">
-                        <p className="menu-item-name">{label}</p>
-                      </span>
-                    </a>
-                  ))}
-                </div>
+            <div
+              className={`${styles.menuDropDown} ${
+                showMenuDropDown ? styles.slideDownActive : styles.slideDownHidden
+              }`}
+            >
+              <div className={styles.menuDropDownContainer}>
+                {[
+                  { label: t('home'), href: '/index.html' },
+                  { label: t('order'), href: '/bestall.html' },
+                  { label: t('customer'), href: '/kunder.html' },
+                  { label: t('about'), href: '/omoss.html' },
+                  { label: t('contact'), href: '/kontaktaoss.html' },
+                ].map(({ label, href }) => (
+                  <a
+                    key={label}
+                    className={styles.menuDropDownItem}
+                    href={`https://www.123fakturera.se${href}`}
+                  >
+                    <span className={styles.collectionSpan}>
+                      <p className={styles.menuItemName}>{label}</p>
+                    </span>
+                  </a>
+                ))}
               </div>
-            )}
+            </div>
           </div>
-          {/* Desktop menu + language */}
-          <div className="navigation-menu-bar">
-            <div className="pc-menu">
+
+          <div className={styles.navigationMenuBar}>
+            <div className={styles.pcMenu}>
               {[
                 { label: t('home'), href: '/index.html' },
                 { label: t('order'), href: '/bestall.html' },
@@ -108,42 +108,46 @@ const Navbar = () => {
               ].map(({ label, href }) => (
                 <a
                   key={label}
-                  className="pc-menu-items"
+                  className={styles.pcMenuItems}
                   href={`https://www.123fakturera.se${href}`}
                 >
-                  <span className="collectionSpan">
-                    <span className="collectionitem">{label}</span>
+                  <span className={styles.collectionSpan}>
+                    <span className={styles.collectionitem}>{label}</span>
                   </span>
                 </a>
               ))}
             </div>
+
             <div ref={dropdownRef}>
-              <button className="lang-select-btn language-pc-menu-items" onClick={handleLangDrop}>
-                <div className="language-title-box">
-                  <span className="language-name">{language.label}</span>
+              <button
+                className={`${styles.langSelectBtn} ${styles.languagePcMenuItems}`}
+                onClick={handleLangDrop}
+              >
+                <div className={styles.languageTitleBox}>
+                  <span className={styles.languageName}>{language.label}</span>
                   <img
                     src={`https://storage.123fakturera.se/public/flags/${language.flag}.png`}
-                    className="flag-icon drop-down-image"
+                    className={`${styles.flagIcon} ${styles.dropDownImage}`}
                     alt={language.label}
                   />
                 </div>
               </button>
 
               {showLangDropDown && (
-                <div className={`lang-drop-wrapper ${showLangDropDown ? 'open' : ''}`}>
-                  <div className="lang-drop-container">
-                    <div className="dropdownList">
+                <div className={`${styles.langDropWrapper} ${showLangDropDown ? styles.open : ''}`}>
+                  <div className={styles.langDropContainer}>
+                    <div className={styles.dropdownList}>
                       {languages.map(({ label, flag }) => (
                         <div
                           key={label}
-                          className={`language-${label} drop-down-element`}
+                          className={`${styles[`language${label}`]} ${styles.dropDownElement}`}
                           onClick={() => handleLangSelect(label)}
                         >
-                          <div className="drop-down-lang-name">{label}</div>
-                          <div className="drop-down-image-div">
+                          <div className={styles.dropDownLangName}>{label}</div>
+                          <div className={styles.dropDownImageDiv}>
                             <img
                               src={`https://storage.123fakturera.se/public/flags/${flag}.png`}
-                              className="drop-down-image"
+                              className={styles.dropDownImage}
                               alt={label}
                             />
                           </div>

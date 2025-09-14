@@ -1,0 +1,332 @@
+.navigationOut {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  font-weight: 600;
+}
+
+.navigationHeader {
+  width: 75%;
+  padding-top: 2.5rem;
+  color: white;
+  margin: auto;
+}
+
+button {
+  background-color: transparent;
+}
+
+.navigationSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logoa {
+  display: block;
+}
+
+.openMenuDds {
+  display: none;
+  cursor: pointer;
+}
+
+.navigationMenuBar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.langDropk {
+  display: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.navigationLogo {
+  height: 2rem;
+  margin-top: -0.5rem;
+  max-width: 100%;
+}
+
+.navigationSvg {
+  color: white;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  cursor: pointer;
+}
+
+.pcMenu {
+  display: block;
+  margin-right: 1rem;
+  line-height: 18px;
+}
+
+.pcMenuItems {
+  color: inherit;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 18px;
+}
+
+.langSelectBtn {
+  color: inherit;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 18px;
+  position: relative;
+}
+
+.langDropContainer {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.dropdownContainer {
+  cursor: pointer;
+  position: relative;
+}
+
+.languageBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.flagName {
+  font-size: 15px;
+  height: 18px;
+  position: relative;
+  margin-right: 40px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.iconFlagNav {
+  object-position: center center;
+  border-radius: 3px;
+  width: 26px;
+  height: 18px;
+  max-width: 100%;
+  position: absolute;
+  right: 5px;
+  top: -2px;
+  object-fit: cover;
+}
+
+.dropdownList {
+  font-weight: 500;
+  background: #fff;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 15px;
+  position: absolute;
+  right: -13px;
+  z-index: 100;
+  margin-left: -0.75rem;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  opacity: 1;
+  box-shadow: 0 10px 15px -3px rgba(17, 17, 17, 0.7), 0 4px 6px -4px rgba(34, 34, 34, 0.7);
+}
+
+.dropDownElement {
+  transition-duration: 700ms;
+  padding: 0.25rem 0.5rem;
+  justify-content: space-between;
+  cursor: pointer;
+  display: flex;
+  margin: 0.5rem 0;
+  align-items: center;
+  height: 33px;
+}
+
+.dropDownImage {
+  object-fit: cover;
+  object-position: center center;
+  width: 26px;
+  height: 18px;
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+.dropDownImageDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 26px;
+  margin-left: auto;
+  height: 18px;
+}
+
+.dropDownLangName {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+.menuDropDown {
+  height: 0;
+  opacity: 0;
+  margin-top: 3rem;
+  transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.menuDropDownContainer {
+  position: relative;
+  z-index: 30;
+  height: 100%;
+}
+
+.menuDropDownItem {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 1.5rem 2rem;
+  display: block;
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: inherit;
+  height: 65px;
+}
+
+.menuDropDownItem:hover {
+  background-color: #8cc0ff;
+}
+
+.collectionSpan {
+  font-weight: 600;
+}
+
+.collectionitem {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.flagName,
+.pcMenuItems {
+  vertical-align: bottom;
+  color: white;
+  background-color: transparent;
+}
+
+.menuItemName {
+  font-weight: 600;
+}
+
+.flagIcon {
+  margin-left: 1rem;
+  margin-top: -5px;
+}
+
+.languageTitleBox {
+  display: flex;
+  align-items: center;
+}
+
+.languagePcMenuItems {
+  padding-right: 0px;
+}
+
+.languagePcMenuItems:hover {
+  color: white;
+}
+
+.languageName {
+  font-weight: 500;
+}
+
+.langDropWrapper {
+  display: block;
+}
+
+@media (max-width: 1269px) {
+  .menuDropDown {
+    overflow: hidden;
+    width: 19rem;
+    height: 0px;
+    background-color: white;
+    opacity: 1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  }
+
+  .logoa,
+  .pcMenu,
+  .langDrop {
+    display: none;
+  }
+
+  .openMenuDds {
+    display: block;
+  }
+
+  .langDropk {
+    display: block;
+  }
+
+  .pcMenu,
+  .logoa {
+    display: none;
+  }
+
+  .langDropWrapper {
+    display: block;
+    margin-left: 1rem;
+  }
+
+  .languageBox {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dropdownList {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (min-width: 1270px) {
+  .menuDropDown {
+    display: none;
+  }
+
+  .dropdownList {
+    right: 2px;
+    margin-top: 24px;
+  }
+}
+
+.slideDownHidden {
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-20px);
+  transition: transform 0.5s ease-out, max-height 0.5s ease-out;
+}
+
+.slideDownActive {
+  max-height: 500px;
+  overflow: hidden;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out, max-height 0.5s ease-out;
+}
+
+.menuDropDown {
+  height: 325px;
+  margin-top: 4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transform: translateY(-20px);
+}
