@@ -86,7 +86,7 @@ const PriceListPage = () => {
 
         <div className={styles.buttons}>
           <button className={`${styles.button}`}>
-            <span> New Product</span> <FaPlusCircle color="#00bf63" />
+            <span> New Product</span> <FaPlusCircle color="#3DE695" />
           </button>
           <button className={styles.button}>
             <span>Print List</span> <FaPrint color="#5ce1e6" />
@@ -99,7 +99,7 @@ const PriceListPage = () => {
       </div>
 
       <div className={styles.tableContainer}>
-        <div className={`${styles.tableRow} `}>
+        <div className={`${styles.tableRow} `} style={{ marginBottom: '12px' }}>
           <div className={`${styles.tableCell} ${styles.tableCell}`}></div>
           <div className={`${styles.tableCell} ${styles.articleNoCell}`}>
             <div className={styles.headerContent}>
@@ -112,12 +112,12 @@ const PriceListPage = () => {
               <FaLongArrowAltDown className={styles.arrowDownIcon} color="#00bf63" />
             </div>
           </div>
-          <div className={`${styles.tableCell} ${styles.inPriceCell}`}>In Price</div>
-          <div className={`${styles.tableCell} ${styles.priceCell}`}>Price</div>
-          <div className={`${styles.tableCell} ${styles.unitCell}`}>Unit</div>
-          <div className={`${styles.tableCell} ${styles.inStockCell}`}>In Stock</div>
-          <div className={`${styles.tableCell} ${styles.descriptionCell}`}>Description</div>
-          <div className={`${styles.tableCell}`}></div>
+          <div className={`${styles.headerContent} ${styles.inPriceCell}`}>In Price</div>
+          <div className={`${styles.headerContent} ${styles.priceCell}`}>Price</div>
+          <div className={`${styles.headerContent} ${styles.unitCell}`}>Unit</div>
+          <div className={`${styles.headerContent} ${styles.inStockCell}`}>In Stock</div>
+          <div className={`${styles.headerContent} ${styles.descriptionCell}`}>Description</div>
+          <div className={`${styles.headerContent}`}></div>
         </div>
         {products.map((product, index) => (
           <div key={index} className={styles.tableRow}>

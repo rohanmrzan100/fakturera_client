@@ -12,14 +12,14 @@ const Pricelist = () => {
             className={styles.avatar}
             alt="avatar"
           ></img>
-
+          <div className={styles.greenDot}></div>
           <div>
             <h3>John Andre</h3>
             <p>Storfjord AS</p>
           </div>
         </div>
 
-        <div className="open-menu-dds">
+        <div className={styles['open-menu-dds']}>
           <svg
             stroke="currentColor"
             fill="currentColor"
